@@ -1,12 +1,7 @@
 #-*- coding: utf-8 -*-
-from cadproj.models import Pessoa, Estudante, Orientador, Projeto, Curso, TipoDeProjeto, PalavraChave, ModoDeApresentacao, Local, Cidade, Recurso
+from cadproj.models import OrientadorOuMediador, Projeto, Curso, TipoDeProjeto, ModoDeApresentacao, Cidade, Recurso, Calouro, AnoDeEntrada
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
-
-class PessoaOptions(admin.ModelAdmin):
-    list_display = ('nome',)
-    #list_filter = ('tipo_de_documento','local_atual','data_de_envio_ou_chegada','preenchido','assinado','estagiario')
-    #search_fieldsets = ['nome']       # nao funcionou com foreign
 
 class EstudanteOptions(admin.ModelAdmin):
     list_display = ('nome','matricula')
@@ -38,16 +33,14 @@ class ProjetoOptions(admin.ModelAdmin):
     list_filter = ('orientador','curso','tipo_de_projeto','cidade_de_abrangencia','local_de_abrangencia')
 
 admin.site.register(Curso)
+admin.site.register(Projeto)
 admin.site.register(TipoDeProjeto)
-admin.site.register(PalavraChave)
 admin.site.register(ModoDeApresentacao)
 
-admin.site.register(Pessoa, PessoaOptions)
-admin.site.register(Estudante, EstudanteOptions)
-admin.site.register(Orientador, OrientadorOptions)
+admin.site.register(OrientadorOuMediador)
 
-admin.site.register(Projeto, ProjetoOptions)
 admin.site.register(Cidade)
-admin.site.register(Local)
 admin.site.register(Recurso)
+admin.site.register(Calouro)
+admin.site.register(AnoDeEntrada)
 
