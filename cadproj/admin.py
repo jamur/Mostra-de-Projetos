@@ -15,25 +15,32 @@ class OrientadorOptions(admin.ModelAdmin):
 
 class ProjetoOptions(admin.ModelAdmin):
     #inlines = [Pendencia_Inline, Contatamento_Inline]
-    list_display = ('titulo', 'estudante', 'orientador')
+    list_display = ('estudante', 'titulo', 'orientador_ou_mediador')
     fieldsets = (
         (None, {
-            'fields': ('titulo','descricao','estudante','orientador','curso')
+            'fields': ('estudante','matricula','titulo','descricao')
+        }),
+        ('Outros Componentes da Equipe', {
+            'fields': ('estudante2','estudante3','outros_componentes')
+        }),
+        ('Curso', {
+            'fields': ('curso','turma')
+        }),
+        ('Contato', {
+            'fields': ('cidade_onde_mora','fone','email')
         }),
         ('Projeto', {
-            'fields': ('tipo_de_projeto','tipo_exotico','palavra_chave')
+            'fields': ('orientador_ou_mediador','colaborador','tipo_de_projeto','outro_tipo_de_projeto','palavra_chave1','palavra_chave2','palavra_chave3','cidade_de_abrangencia','local_e_ou_instituicao_de_abrangencia')
         }),
-        ('Abrangência', {'fields':('cidade_de_abrangencia','local_de_abrangencia')
-        }),
-        ('Apresentação', {'fields':('modo_de_apresentacao','materiais_para_a_apresentacao','recurso_para_a_apresentacao','outro_modo')
+        ('Apresentação', {'fields':('modo_de_apresentacao','outro_modo','recursos_para_a_apresentacao')
         }),
     )
     list_per_page = 25
-    search_fields = ['titulo', 'descricao']
-    list_filter = ('orientador','curso','tipo_de_projeto','cidade_de_abrangencia','local_de_abrangencia')
+    search_fields = ['estudante', 'titulo', 'orientador', 'descricao', 'matricula', 'fone']
+    list_filter = ('orientador_ou_mediador','curso','tipo_de_projeto','cidade_de_abrangencia')
 
 admin.site.register(Curso)
-admin.site.register(Projeto)
+admin.site.register(Projeto,ProjetoOptions)
 admin.site.register(TipoDeProjeto)
 admin.site.register(ModoDeApresentacao)
 
