@@ -1,5 +1,5 @@
 #-*- coding: utf-8 -*-
-from cadproj.models import OrientadorOuMediador, Projeto, Curso, TipoDeProjeto, ModoDeApresentacao, Cidade, Recurso, Calouro, AnoDeEntrada
+from cadproj.models import OrientadorOuMediador, Projeto, Curso, TipoDeProjeto, ModoDeApresentacao, Cidade, Recurso, Calouro, Turma
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
@@ -42,5 +42,5 @@ admin.site.register(OrientadorOuMediador)
 admin.site.register(Cidade)
 admin.site.register(Recurso)
 admin.site.register(Calouro)
-admin.site.register(AnoDeEntrada)
+admin.site.register(Turma)
 

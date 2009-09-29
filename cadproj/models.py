@@ -9,7 +9,7 @@ ANO_DE_ENTRADA = (
     ('2009','2009'),
 )
 
-class AnoDeEntrada(models.Model):
+class Turma(models.Model):
     ano = models.CharField(max_length = 4)
 
     def __unicode__(self):
@@ -33,11 +33,12 @@ class Curso(models.Model):
 
 class Calouro(models.Model):
     nome = models.CharField(max_length = 75)
-    fone = models.CharField(max_length = 25)
-    email = models.EmailField()
+    matricula = models.CharField(max_length = 25)
+    fone = models.CharField(max_length = 25, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
     cidade = models.CharField(max_length = 50)
     curso = models.ForeignKey(Curso)
-    ano_de_entrada = models.ForeignKey(AnoDeEntrada)
+    turma = models.ForeignKey(Turma)
 
     def __unicode__(self):
         return self.nome
@@ -67,9 +68,10 @@ class Recurso(models.Model):
         return self.recurso
 
 class Projeto(models.Model):
+    estudante = models.CharField('Estudante', max_length= 90, help_text = 'Nome do Estudante ou Egresso idealizador do Projeto')
+    matricula = models.CharField( null= True, blank= True, max_length = 25)
     titulo = models.TextField('Título ou Tema do Projeto', max_length = 150) 
     descricao = models.TextField('Breve Descrição do Projeto')
-    estudante = models.CharField('Estudante ou Egresso', max_length= 90)
     estudante2 = models.CharField(max_length = 90,null=True,blank=True)
     estudante3 = models.CharField(max_length = 90,null=True,blank=True)
     outros_componentes = models.CharField('Outros componentes',max_length = 150, null=True, blank=True) #, related_name='projs')
@@ -77,18 +79,19 @@ class Projeto(models.Model):
     fone = models.CharField(max_length = 25, null=True, blank=True)
     email = models.EmailField(null=True,blank=True)
     orientador_ou_mediador = models.ForeignKey(OrientadorOuMediador)
+    colaborador = models.CharField(max_length = 100, null=True, blank=True, help_text="Preencha caso haja um co-mediador / co-orientador")
     curso = models.ForeignKey(Curso)
-    ano_de_entrada = models.ForeignKey(AnoDeEntrada)
-    tipo_de_projeto = models.ForeignKey(TipoDeProjeto, null=True, blank=True)
+    turma = models.ForeignKey(Turma)
+    tipo_de_projeto = models.ForeignKey(TipoDeProjeto)
     outro_tipo_de_projeto = models.CharField('Outro',max_length = 50, null=True, blank=True)
     palavra_chave1 = models.CharField(max_length=50)
     palavra_chave2 = models.CharField(max_length=50)
     palavra_chave3 = models.CharField(max_length=50)
-    modo_de_apresentacao = models.ForeignKey(ModoDeApresentacao, null=True, blank=True)
+    modo_de_apresentacao = models.ForeignKey(ModoDeApresentacao)
     outro_modo = models.CharField(max_length=50, null=True, blank=True)
-    cidade_de_abrangencia = models.ManyToManyField(Cidade, null=True, blank=True)
-    local_de_abrangencia = models.CharField(max_length=150, null=True, blank=True)
-    recursos_para_a_apresentacao = models.ManyToManyField(Recurso, null=True, blank=True)
+    cidade_de_abrangencia = models.ManyToManyField(Cidade)
+    local_e_ou_instituicao_de_abrangencia = models.CharField(max_length=150, verbose_name="Local e/ou Instituição de Abrangência")
+    recursos_para_a_apresentacao = models.ManyToManyField(Recurso)
 
     def __unicode__(self):
         return self.titulo
