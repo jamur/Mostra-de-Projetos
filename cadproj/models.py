@@ -79,7 +79,7 @@ class Projeto(models.Model):
     fone = models.CharField("Fone(s)", max_length = 25, null=True, blank=True)
     email = models.EmailField("Email", null=True,blank=True)
     orientador_ou_mediador = models.ForeignKey(OrientadorOuMediador)
-    colaborador = models.CharField(max_length = 100, null=True, blank=True, help_text="Preencha caso haja um co-mediador / co-orientador")
+    colaborador = models.CharField(max_length = 100, null=True, blank=True, help_text="Preencha caso haja um colaborador do projeto (geralmente um técnico ou professor)")
     curso = models.ForeignKey(Curso)
     turma = models.ForeignKey(Turma)
     tipo_de_projeto = models.ForeignKey(TipoDeProjeto)
