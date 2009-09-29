@@ -1,6 +1,6 @@
 # Django settings for mostra project.
-
-DEBUG = True
+LOCAL = False
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -32,6 +32,13 @@ SITE_ID = 1
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
 USE_I18N = True
+
+# Local Settings
+try:
+    from local_settings import *
+except ImportError:
+    pass
+
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
@@ -79,3 +86,4 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'gepa.cadproj',
 )
+
