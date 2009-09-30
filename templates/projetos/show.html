@@ -1,0 +1,31 @@
+Inscrição para a Mostra de Projetos
+
+<h1>{{ p.titulo }}</h1>
+<h2>{{ p.estudante }} </h2>
+
+<li>{{ p.matricula }}</li>
+<li>{{ p.fone }}</li>
+<li>{{ p.descricao }}</li>
+<li>   {{ p.estudante2 }}</li>
+<li>   {{ p.estudante3 }}</li>
+<li>   {{ p.outros_componentes }}</li>
+<li>   {{ p.cidade_onde_mora }}</li>
+<li>   {{ p.fone }}</li>
+<li>   {{ p.email }}</li>
+<li>  {{ p.orientador_ou_mediador }}</li>
+<li>   {{ p.colaborador }}</li>
+<li>   {{ p.curso }}</li>
+<li>   {{ p.turma }}</li>
+<li>   {{ p.tipo_de_projeto }}</li>
+<li>   {{ p.outro_tipo_de_projeto }}</li>
+<li>   {{ p.palavra_chave1 }}</li>
+<li>   {{ p.palavra_chave2 }}</li>
+<li>   {{ p.palavra_chave3 }}</li>
+<li>   {{ p.modo_de_apresentacao }}</li>
+<li>   {{ p.outro_modo }}</li>
+<li>{% for c in p.cidade_de_abrangencia.all %}
+    <li>{{ c }}</li>
+    {% endfor %}
+</li>
+<li>   {{ p.local_e_ou_instituicao_de_abrangencia }}</li>
+<li>   {{ p.recursos_para_a_apresentacao }}</li>
