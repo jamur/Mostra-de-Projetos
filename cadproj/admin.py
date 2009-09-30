@@ -36,7 +36,7 @@ class ProjetoOptions(admin.ModelAdmin):
         }),
     )
     list_per_page = 25
-    search_fields = ['estudante', 'titulo', 'orientador', 'descricao', 'matricula', 'fone']
+    search_fields = ['estudante', 'titulo', 'descricao', 'matricula', 'fone']
     list_filter = ('orientador_ou_mediador','curso','tipo_de_projeto','cidade_de_abrangencia')
 
 admin.site.register(Curso)
