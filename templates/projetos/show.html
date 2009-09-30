@@ -1,31 +1,111 @@
-Inscrição para a Mostra de Projetos
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html template="true" lang="pt-br"><head>
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type"><title>Inscricao</title>
 
-<h1>{{ p.titulo }}</h1>
-<h2>{{ p.estudante }} </h2>
+</head><body>
+<h1>Inscrição para a Mostra de Projetos</h1>
+<br>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="4" cellspacing="1">
+<tbody>
+<tr>
+<td>
+Nome do Estudante (ou Egresso)<br>
 
-<li>{{ p.matricula }}</li>
-<li>{{ p.fone }}</li>
-<li>{{ p.descricao }}</li>
-<li>   {{ p.estudante2 }}</li>
-<li>   {{ p.estudante3 }}</li>
-<li>   {{ p.outros_componentes }}</li>
-<li>   {{ p.cidade_onde_mora }}</li>
-<li>   {{ p.fone }}</li>
-<li>   {{ p.email }}</li>
-<li>  {{ p.orientador_ou_mediador }}</li>
-<li>   {{ p.colaborador }}</li>
-<li>   {{ p.curso }}</li>
-<li>   {{ p.turma }}</li>
-<li>   {{ p.tipo_de_projeto }}</li>
-<li>   {{ p.outro_tipo_de_projeto }}</li>
-<li>   {{ p.palavra_chave1 }}</li>
-<li>   {{ p.palavra_chave2 }}</li>
-<li>   {{ p.palavra_chave3 }}</li>
-<li>   {{ p.modo_de_apresentacao }}</li>
-<li>   {{ p.outro_modo }}</li>
-<li>{% for c in p.cidade_de_abrangencia.all %}
-    <li>{{ c }}</li>
-    {% endfor %}
-</li>
-<li>   {{ p.local_e_ou_instituicao_de_abrangencia }}</li>
-<li>   {{ p.recursos_para_a_apresentacao }}</li>
+{{ p.estudante }}
+</td>
+</tr>
+<tr>
+<td>
+Titulo do Projeto<br>
+
+{{ p.titulo }}
+<br>
+</td>
+</tr>
+<tr>
+<td>Matrícula do Estudante (ou Egresso)<br>
+{{ p.matricula }}</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td>Telefone<br>
+{{ p.fone }}</td>
+</tr>
+<tr>
+<td>{{ p.descricao }}</td>
+</tr>
+<tr>
+<td>{{ p.estudante2 }}</td>
+</tr>
+<tr>
+<td>{{ p.estudante3 }}</td>
+</tr>
+<tr>
+<td>{{ p.outros_componentes}}</td>
+</tr>
+<tr>
+<td>{{ p.cidade_onde_mora }}</td>
+</tr>
+<tr>
+<td>{{ p.email }}</td>
+</tr>
+<tr>
+<td>{{ p.orientador_ou_mediador }}</td>
+</tr>
+<tr>
+<td>
+{{ p.colaborador }}
+</td>
+</tr>
+<tr>
+<td> {{ p.fone }}</td>
+</tr>
+<tr>
+<td>{{ p.curso }}</td>
+</tr>
+<tr>
+<td>{{ p.turma }}</td>
+</tr>
+<tr>
+<td>{{ p.tipo_de_projeto }}</td>
+</tr>
+<tr>
+<td>{{ p.outro_tipo_de_projeto }}</td>
+</tr>
+<tr>
+<td>{{ p.palavra_chave1 }}</td>
+</tr>
+<tr>
+<td>{{ p.palavra_chave2 }}</td>
+</tr>
+<tr>
+<td>{{ p.palavra_chave3 }}</td>
+</tr>
+<tr>
+<td>{{ p.modo_de_apresentacao }}</td>
+</tr>
+<tr>
+<td>{{ p.outro_modo }}</td>
+</tr>
+<tr>
+<td>{% for c in p.cidade_de_abrangencia.all %}{{ c }} {% endfor %}</td>
+</tr>
+<tr>
+<td>{{ p.local_e_ou_instituicao_de_abrangencia }}</td>
+</tr>
+<tr>
+<td>{% for r in p.recursos_para_a_apresentacao.all %} {{ r }} {% endfor %}</td>
+</tr>
+<tr>
+<td><br>
+<br>
+<br>
+___________________________________<br>
+Mediador: {{p.orientador_ou_mediador}}</td>
+</tr>
+</tbody>
+</table>
+<br>
+</body></html>
