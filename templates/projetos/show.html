@@ -1,105 +1,188 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html template="true" lang="pt-br"><head>
 <meta content="text/html;charset=UTF-8" http-equiv="Content-Type"><title>Inscricao</title>
+<style>
+th {
+    width="30%"
+}
 
-</head><body>
-<h1>Inscrição para a Mostra de Projetos</h1>
+tr {
+    width="70%"
+}
+</style>
+</head>
+<body>
+<table margin="20"><tbody><tr><td>
+<h1 align="center">Inscrição para a Mostra de Projetos</h1>
 <br>
-<table style="text-align: left; width: 100%;" border="1" cellpadding="4" cellspacing="1">
+<table style="text-align: left; width: 100%;" border="1" bordercolor="#000000" cellpadding="4" cellspacing="0">
 <tbody>
 <tr>
-<td>
+<td class="campo">
 Nome do Estudante (ou Egresso)<br>
-
+</th>
+<th class="conteudo">
 {{ p.estudante }}
-</td>
+</th>
 </tr>
 <tr>
-<td>
-Titulo do Projeto<br>
+    <td>
+    Titulo do Projeto
+    </td>
+    <th>
+    {{ p.titulo }}
+    </th>
+</tr>
+<tr>
+    <td>Matrícula do Estudante (ou Egresso)</td>
+    <th>{{ p.matricula }}</th>
+</tr>
+<tr>
+    <td>Telefone</td>
+    <th>{{ p.fone }}</th>
+</tr>
+<tr>
+    <td>Descrição do Projeto</td>
+    <th>{{ p.descricao }}</th>
+</tr>
+{% if p.estudante2 %}
+<tr>
+    <td>Estudante2</td>
+    <th>{{ p.estudante2 }}</th>
+</tr>
+{% endif %}
 
-{{ p.titulo }}
-<br>
-</td>
-</tr>
+{% if p.estudante3 %}
 <tr>
-<td>Matrícula do Estudante (ou Egresso)<br>
-{{ p.matricula }}</td>
+    <td>Estudante3</td>
+    <th>{{ p.estudante3 }}</th>
 </tr>
+{% endif %}
+
+{% if p.cidade_onde_mora %}
+<tr>
+    <td>Cidade onde mora</td>
+    <th>{{ p.cidade_onde_mora }}</th>
+</tr>
+{% endif %}
+
+{% if p.email %}
+<tr>
+    <td>Email</td>
+    <th>{{ p.email }}</th>
+</tr>
+{% endif %}
+
+{% if p.orientador_ou_mediador %}
+<tr>
+    <td>Orientador ou Mediador</td>
+    <th>{{ p.orientador_ou_mediador }}</th>
+</tr>
+{% endif %}
+
+{% if p.colaborador %}
+<tr>
+    <td>Colaborador</td>
+    <th>{{ p.colaborador }}</th>
+</tr>
+{% endif %}
+
+{% if p.fone %}
+<tr>
+    <td>Telefone</td>
+    <th>{{ p.fone }}</th>
+</tr>
+{% endif %}
+
+{% if p.curso %}
+<tr>
+    <td>Curso</td>
+    <th>{{ p.curso }}</th>
+</tr>
+{% endif %}
+
+{% if p.Turma %}
+<tr>
+    <td>Turma</td>
+    <th>{{ p.turma }}</th>
+</tr>
+{% endif %}
+
+{% if p.tipo_de_projeto %}
+<tr>
+    <td>Tipo de Projeto</td>
+    <th>{{ p.tipo_de_projeto }}</th>
+</tr>
+{% endif %}
+
+{% if p.outro_tipo_de_projeto %}
+<tr>
+    <td>Outro Tipo de Projeto</td>
+    <th>{{ p.outro_tipo_de_projeto }}</th>
+</tr>
+{% endif %}
+
+{% if p.palavra_chave %}
+<tr>
+    <td>Palavra chave</td>
+    <th>{{ p.palavra_chave }}</th>
+</tr>
+{% endif %}
+
+{% if p.palavra_chave_2 %}
+<tr>
+    <td>Palavra chave 2</td>
+    <th>{{ p.palavra_chave_2 }}</th>
+</tr>
+{% endif %}
+
+{% if p.palavra_chave_3 %}
+<tr>
+    <td>Palavra chave 3</td>
+    <th>{{ p.palavra_chave_3 }}</th>
+</tr>
+{% endif %}
+
+{% if p.modo_de_apresentacao %}
+<tr>
+    <td>Modo de apresentação</td>
+    <th>{{ p.modo_de_apresentacao }}</th>
+</tr>
+{% endif %}
+
+{% if p.outro_modo %}
+<tr>
+    <td>Outro modo</td>
+    <th>{{ p.outro_modo }}</th>
+</tr>
+{% endif %}
+
+{% if p.cidade_de_abrangencia %}
+<tr>
+    <td>Cidades de abrangência</td>
+    <th>{% for c in p.cidade_de_abrangencia.all %}{{ c }}<br /> {% endfor %}</th>
+</tr>
+{% endif %}
+
+{% if p.local_e_ou_instituicao_de_abrangencia %}
+<tr>
+    <td>Local e/ou instituição de abrangência</td>
+    <th>{{ p.local_e_ou_instituicao_de_abrangencia }}</th>
+</tr>
+{% endif %}
+
+{% if p.recursos_para_a_apresentacao %}
+<tr>
+    <td>Recursos para a apresentação</td>
+    <th>{% for r in p.recursos_para_a_apresentacao.all %} {{ r }}<br />{% endfor %}</th>
+</tr>
+{% endif %}
+
+
+
 <tr>
 <td></td>
-</tr>
-<tr>
-<td>Telefone<br>
-{{ p.fone }}</td>
-</tr>
-<tr>
-<td>{{ p.descricao }}</td>
-</tr>
-<tr>
-<td>{{ p.estudante2 }}</td>
-</tr>
-<tr>
-<td>{{ p.estudante3 }}</td>
-</tr>
-<tr>
-<td>{{ p.outros_componentes}}</td>
-</tr>
-<tr>
-<td>{{ p.cidade_onde_mora }}</td>
-</tr>
-<tr>
-<td>{{ p.email }}</td>
-</tr>
-<tr>
-<td>{{ p.orientador_ou_mediador }}</td>
-</tr>
-<tr>
-<td>
-{{ p.colaborador }}
-</td>
-</tr>
-<tr>
-<td> {{ p.fone }}</td>
-</tr>
-<tr>
-<td>{{ p.curso }}</td>
-</tr>
-<tr>
-<td>{{ p.turma }}</td>
-</tr>
-<tr>
-<td>{{ p.tipo_de_projeto }}</td>
-</tr>
-<tr>
-<td>{{ p.outro_tipo_de_projeto }}</td>
-</tr>
-<tr>
-<td>{{ p.palavra_chave1 }}</td>
-</tr>
-<tr>
-<td>{{ p.palavra_chave2 }}</td>
-</tr>
-<tr>
-<td>{{ p.palavra_chave3 }}</td>
-</tr>
-<tr>
-<td>{{ p.modo_de_apresentacao }}</td>
-</tr>
-<tr>
-<td>{{ p.outro_modo }}</td>
-</tr>
-<tr>
-<td>{% for c in p.cidade_de_abrangencia.all %}{{ c }} {% endfor %}</td>
-</tr>
-<tr>
-<td>{{ p.local_e_ou_instituicao_de_abrangencia }}</td>
-</tr>
-<tr>
-<td>{% for r in p.recursos_para_a_apresentacao.all %} {{ r }} {% endfor %}</td>
-</tr>
-<tr>
-<td><br>
+<td align="center"><br>
 <br>
 <br>
 ___________________________________<br>
@@ -108,4 +191,5 @@ Mediador: {{p.orientador_ou_mediador}}</td>
 </tbody>
 </table>
 <br>
+</table></tbody></tr></td>
 </body></html>

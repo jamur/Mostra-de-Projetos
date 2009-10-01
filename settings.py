@@ -1,4 +1,7 @@
 # Django settings for mostra project.
+import os
+
+RAIZ = os.path.dirname(os.path.abspath(__file__))
 LOCAL = False
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
@@ -42,17 +45,17 @@ except ImportError:
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = os.path.join(RAIZ, 'media') 
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/'
+ADMIN_MEDIA_PREFIX = '/media/admin'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'r5gdmo2d+l9t^bwn+rc%=m4=xk5fuqr9wkxa$n&+v7-fyou$h%'
@@ -76,7 +79,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.'/home/templates'
-    'templates',
+    os.path.join(RAIZ, 'templates'),
 )
 
 INSTALLED_APPS = (
